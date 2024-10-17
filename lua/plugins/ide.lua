@@ -69,7 +69,7 @@ return {
         },
 
         window = {
-          position = 'right',
+          position = 'left',
           mappings = {
             ['oo'] = { 'open', nowait = true },
           },
