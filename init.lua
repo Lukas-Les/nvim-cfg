@@ -165,7 +165,7 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 
 
 -- Completion Plugin Setup
-local cmp = require'cmp'
+local cmp = require('cmp')
 cmp.setup({
   -- Enable LSP snippets
   snippet = {
@@ -216,4 +216,20 @@ cmp.setup({
       end,
   },
 })
+
+-- Treesitter Plugin Setup 
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "lua", "rust", "toml" },
+  auto_install = true,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting=false,
+  },
+  ident = { enable = true }, 
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  }
+}
 
