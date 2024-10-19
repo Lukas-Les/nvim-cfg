@@ -23,7 +23,7 @@ vim.opt.colorcolumn = "121" -- Highlight column
 vim.opt.cursorline = true -- Highlight current line
 
 vim.opt.number = true -- Display line numbers
-vim.opt.relativenumber = true -- Display relative line numbers
+vim.opt.relativenumber = false -- Display relative line numbers
 vim.opt.showmatch = true -- Show matching brackets/parenthesis
 vim.opt.hlsearch = true -- Highlight search terms
 vim.opt.incsearch = true -- Find as you type search
