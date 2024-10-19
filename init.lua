@@ -3,7 +3,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vimg.t_co = 256 -- enabling support for 256 colors in whichever terminal emulator
+vim.g.t_co = 256 -- enabling support for 256 colors in whichever terminal emulator
 vim.g.background = "dark" -- terminal background will use dark or light mode
 
 
