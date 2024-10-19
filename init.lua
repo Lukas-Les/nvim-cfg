@@ -3,6 +3,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vimg.t_co = 256 -- enabling support for 256 colors in whichever terminal emulator
+vim.g.background = "dark" -- terminal background will use dark or light mode
+
+
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = false
 
@@ -33,6 +37,10 @@ vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below
 vim.opt.foldenable = false -- Disable code folding
 vim.opt.splitright = true -- Puts new vsplit windows to the right of the current
 vim.opt.splitbelow = true -- Puts new split windows to the bottom of the current
+
+-- Filetypes
+opt.encoding = "utf8" -- str:  String encoding to use
+opt.fileencoding = "utf8" -- str:  File encoding to use
 
 -- Formatting
 vim.opt.wrap = true -- Wrap long lines
