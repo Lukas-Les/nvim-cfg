@@ -49,14 +49,23 @@ return {
                         never_show = { ".git" },
                     },
                 },
-
                 window = {
                     position = "left",
                     mappings = {
                         ["oo"] = { "open", nowait = true },
+                        ["Y"] = "copy_filename_to_clipboard",
+                        ["<C-r>"] = "set_root",
                     },
                 },
-            })
+                commands = {
+                    copy_filename_to_clipboard = function(state)
+                        local node = state.tree:get_node()
+                        local filename = node.name
+                        vim.fn.setreg('+', filename)  -- Copy to system clipboard
+                        print('Copied: ' .. filename .. ' to clipboard')
+                    end
+                },
+            )
         end,
     },
 }
