@@ -39,8 +39,8 @@ vim.opt.splitright = true -- Puts new vsplit windows to the right of the current
 vim.opt.splitbelow = true -- Puts new split windows to the bottom of the current
 
 -- Filetypes
-opt.encoding = "utf8" -- str:  String encoding to use
-opt.fileencoding = "utf8" -- str:  File encoding to use
+vim.opt.encoding = "utf8" -- str:  String encoding to use
+vim.opt.fileencoding = "utf8" -- str:  File encoding to use
 
 -- Formatting
 vim.opt.wrap = true -- Wrap long lines
