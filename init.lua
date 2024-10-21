@@ -240,3 +240,5 @@ let g:vimspector_bottombar_height = 15
 let g:vimspector_terminal_maxwidth = 70
 ]])
 
+-- Dap
+require('lazy').setup('lua/plugins/dap-ui') 
