@@ -1,6 +1,6 @@
-require('dap')
-require('plugins.dap.python')  -- Load Python configuration
+require("dap")
+require("plugins.dap.python")  -- Load Python configuration
 
 -- Optionally require dapui if needed
-require('dapui').setup()
+require("dapui").setup()
 
