@@ -1,4 +1,4 @@
-local dap = require('dap')
+local dap = require('nvim-dap')
 
 dap.adapters.python = {
   type = 'executable';
