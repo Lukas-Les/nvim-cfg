@@ -4,10 +4,6 @@ return {
       local lspconfig = require('lspconfig')
 
       -- Setup Ruff LSP
-      lspconfig.ruff_lsp.setup {
-        on_attach = function(client, bufnr)
-          client.server_capabilities.documentFormattingProvider = false
-        end,
-      }
+      lspconfig.ruff_lsp.setup()
     end,
 }
