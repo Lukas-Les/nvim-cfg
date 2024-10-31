@@ -4,7 +4,11 @@ return {
     config = function()
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+      -- Setup Rust Analyzer
+      lspconfig.rust_analyzer.setup({
+        capabilities = capabilities,
+        filetypes = { "rust" },
+      })
       -- Setup Ruff LSP for linting
       lspconfig.ruff_lsp.setup({
         capabilities = capabilities,
