@@ -51,7 +51,6 @@ return {
                 mappings = {
                     ["oo"] = { "open", nowait = true },
                     ["Y"] = "copy_filename_to_clipboard",
-                    ["<C-r>"] = "set_root", -- Setting root with Ctrl + r
                 },
             },
             commands = {
