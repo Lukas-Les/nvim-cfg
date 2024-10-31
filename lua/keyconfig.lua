@@ -1,4 +1,6 @@
-vim.keymap.set('n', '<leader>/', '<Cmd>set invhlsearch<CR>', { remap = true, silent = true, desc = 'Hide search highlights' })
+vim.keymap.set("n", "<leader>/", "<Cmd>set invhlsearch<CR>", { remap = true, silent = true, desc = "Hide search highlights" })
+vim.keymap.set("n", "<C-c>", "<Cmd>:q<CR>", { remap = true, silent = true, desc = "Close the window" })
+
 
 vim.keymap.set("n", "<leader>nt", "<Cmd>Neotree toggle<CR>", { desc = "Toggle Neotree" })
 
