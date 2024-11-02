@@ -10,12 +10,11 @@ return {
         filetypes = { "rust" },
       })
       -- Setup Ruff LSP for linting
-      lspconfig.ruff_lsp.setup({
-        capabilities = capabilities,
-        filetypes = { "python" },
-      })
-
-      -- Replace 'pylsp' with 'jedi_language_server' if using that instead
+--      lspconfig.ruff_lsp.setup({
+--        capabilities = capabilities,
+--        filetypes = { "python" },
+--      })
+     -- Replace 'pylsp' with 'jedi_language_server' if using that instead
       lspconfig.pylsp.setup({
         capabilities = capabilities,
         filetypes = { "python" },
