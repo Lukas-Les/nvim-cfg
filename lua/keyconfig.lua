@@ -1,5 +1,4 @@
-vim.keymap.set("n", "<leader>/", "<Cmd>set invhlsearch<CR>", { remap = true, silent = true, desc = "Hide search highlights" })
-
+vim.keymap.set("n", "<C-s>", "<Cmd>:w<CR>", {desc = "Save file"})
 -- Windows
 vim.keymap.set("n", "<C-c>", "<Cmd>:q<CR>", { remap = true, silent = true, desc = "Close the window" })
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
@@ -14,4 +13,5 @@ vim.keymap.set("n", "<C-q>", ":tabclose<CR>", { desc = "Close current tab" })
 
 vim.keymap.set("n", "<leader>nt", "<Cmd>Neotree toggle<CR>", { desc = "Toggle Neotree" })
 
-
+-- Search
+vim.keymap.set("n", "<leader>/", "<Cmd>set invhlsearch<CR>", { remap = true, silent = true, desc = "Hide search highlights" })
