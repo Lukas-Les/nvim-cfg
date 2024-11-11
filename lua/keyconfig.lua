@@ -15,3 +15,6 @@ vim.keymap.set("n", "<leader>nt", "<Cmd>Neotree toggle<CR>", { desc = "Toggle Ne
 
 -- Search
 vim.keymap.set("n", "<leader>/", "<Cmd>set invhlsearch<CR>", { remap = true, silent = true, desc = "Hide search highlights" })
+
+vim.api.nvim_set_keymap('n', '<leader>ntr', ':Neotree reveal<CR>', { noremap = true, silent = true })
+
