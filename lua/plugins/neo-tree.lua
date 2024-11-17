@@ -58,11 +58,10 @@ return {
                 copy_filename_to_clipboard = function(state)
                     local node = state.tree:get_node()
                     local filename = node.name
-                    vim.fn.setreg('+', filename) -- Copy to system clipboard
-                    print('Copied: ' .. filename .. ' to clipboard')
-                end
+                    vim.fn.setreg("+", filename) -- Copy to system clipboard
+                    print("Copied: " .. filename .. " to clipboard")
+                end,
             },
         })
     end,
 }
-

@@ -1,1 +1,1 @@
-return {"vhyrro/luarocks.nvim"}
+return { "vhyrro/luarocks.nvim" }

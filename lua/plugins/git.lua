@@ -1,4 +1,4 @@
-return  {
+return {
     "tpope/vim-fugitive",
 
     config = function()
@@ -39,4 +39,3 @@ return  {
         end, { desc = "Git push" })
     end,
 }
-
