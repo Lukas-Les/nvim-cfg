@@ -47,10 +47,11 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/vim-vsnip",
+            "L3MON4D3/LuaSnip",
         },
         config = function()
             local cmp = require("cmp")
-
+            local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
             vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
             cmp.setup({
                 snippet = {
