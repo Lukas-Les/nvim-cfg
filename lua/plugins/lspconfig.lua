@@ -9,11 +9,7 @@ return {
                 capabilities = capabilities,
                 filetypes = { "rust" },
             })
-            -- Setup Ruff LSP for linting
-            --      lspconfig.ruff_lsp.setup({
-            --        capabilities = capabilities,
-            --        filetypes = { "python" },
-            --      })
+
             -- Replace 'pylsp' with 'jedi_language_server' if using that instead
             lspconfig.pylsp.setup({
                 capabilities = capabilities,
@@ -47,7 +43,6 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/vim-vsnip",
-            "L3MON4D3/LuaSnip",
         },
         config = function()
             local cmp = require("cmp")
