@@ -10,11 +10,7 @@ return {
                 filetypes = { "rust" },
             })
 
-            -- Replace 'pylsp' with 'jedi_language_server' if using that instead
-            lspconfig.pylsp.setup({
-                capabilities = capabilities,
-                filetypes = { "python" },
-            })
+            lspconfig.pyright.setup{}
 
             -- Setup gopls for Go
             lspconfig.gopls.setup({
