@@ -10,7 +10,10 @@ return {
                 filetypes = { "rust" },
             })
 
-            lspconfig.pyright.setup{}
+            lspconfig.pyright.setup({
+                capabilities = capabilities,
+                filetypes = { "python" },
+            })
 
             -- Setup gopls for Go
             lspconfig.gopls.setup({
@@ -32,6 +35,7 @@ return {
 
     -- nvim-cmp and its sources
     { "hrsh7th/cmp-nvim-lsp" },
+    { "L3MON4D3/LuaSnip" },
     {
         "hrsh7th/nvim-cmp",
         requires = {
@@ -39,15 +43,17 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/vim-vsnip",
+            "saadparwaiz1/cmp_luasnip",
         },
         config = function()
+            local luasnip = require("luasnip")
             local cmp = require("cmp")
             local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
             vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
             cmp.setup({
                 snippet = {
                     expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body)
+                        luasnip.lsp_expand(args.body)
                     end,
                 },
                 mapping = {
@@ -63,6 +69,7 @@ return {
                     { name = "nvim_lsp" },
                     { name = "buffer" },
                     { name = "path" },
+                    { name = 'luasnip' },
                 }),
             })
         end,
