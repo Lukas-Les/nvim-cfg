@@ -35,6 +35,9 @@ return {
                         staticcheck = true,
                     },
                 },
+                on_attach = function(client, bufnr)
+                    require("dap-go")
+                end,
             })
         end,
     },
