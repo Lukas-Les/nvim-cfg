@@ -2,16 +2,33 @@ return {
     {
         "mfussenegger/nvim-dap",
         dependencies = {
-          'rcarriga/nvim-dap-ui',
-          'nvim-neotest/nvim-nio',
-          'mfussenegger/nvim-dap-python',
+            "rcarriga/nvim-dap-ui",
+            "nvim-neotest/nvim-nio",
+            "mfussenegger/nvim-dap-python",
         },
         config = function()
             local dap = require("dap")
 
             local dapui = require("dapui")
-            dapui.setup()
-
+            dapui.setup({
+                icons = {
+                    expanded = "▾",
+                    collapsed = "▸",
+                    current_frame = "⭐",
+                },
+                controls = {
+                    icons = {
+                        pause = "⏸️,",
+                        play = "🚀",
+                        step_into = "🔽",
+                        step_over = "⏩",
+                        step_out = "🔼",
+                        step_back = "◀️,",
+                        run_last = "🔁",
+                        terminate = "❌",
+                    },
+                },
+            })
             -- Optional: Automatically open and close DAP UI during debugging sessions
             dap.listeners.after.event_initialized["dapui_config"] = function()
                 dapui.open()
