@@ -26,6 +26,7 @@ return {
                         step_back = "◀️,",
                         run_last = "🔁",
                         terminate = "❌",
+                        disconnect = "🔌",
                     },
                 },
             })
