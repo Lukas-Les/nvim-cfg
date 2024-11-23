@@ -40,4 +40,10 @@ return {
             )
         end,
     },
+    {
+        "julianolf/nvim-dap-lldb",
+        config = function()
+            require("dap-lldb").setup()
+        end,
+    },
 }

@@ -4,7 +4,7 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            -- Setup Rust Analyzer
+            -- Rust Analyzer is configured by the Rustaceanvim
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,
                 filetypes = { "rust" },
@@ -74,4 +74,10 @@ return {
             })
         end,
     },
+    -- Rust LSP and debugger
+    -- {
+    --   "mrcjkb/rustaceanvim",
+    --   version = "^5", -- Recommended
+    --   lazy = false, -- This plugin is already lazy
+    -- },
 }
