@@ -39,6 +39,16 @@ return {
                     require("dap-go")
                 end,
             })
+
+            lspconfig.bashls.setup({
+                capabilities = capabilities,
+                filetypes = { "sh", "bash" },
+                on_attach = function(client, bufnr)
+                    -- Keymaps or settings specific to Bash LSP
+                    local opts = { noremap = true, silent = true, buffer = bufnr }
+                    vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts) -- Example: Format buffer
+                end,
+            })
         end,
     },
 
@@ -57,7 +67,7 @@ return {
         config = function()
             local luasnip = require("luasnip")
             local cmp = require("cmp")
-            local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+            local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
             vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
             cmp.setup({
                 snippet = {
@@ -78,7 +88,7 @@ return {
                     { name = "nvim_lsp" },
                     { name = "buffer" },
                     { name = "path" },
-                    { name = 'luasnip' },
+                    { name = "luasnip" },
                 }),
             })
         end,
