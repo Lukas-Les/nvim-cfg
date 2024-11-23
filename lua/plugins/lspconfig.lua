@@ -8,11 +8,17 @@ return {
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,
                 filetypes = { "rust" },
+                on_attach = function(client, bufnr)
+                    require("dap-lldb")
+                end,
             })
 
             lspconfig.pyright.setup({
                 capabilities = capabilities,
                 filetypes = { "python" },
+                on_attach = function(client, bufnr)
+                    require("dap-python")
+                end,
             })
 
             -- Setup gopls for Go

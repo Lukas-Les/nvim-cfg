@@ -4,7 +4,6 @@ return {
         dependencies = {
             "rcarriga/nvim-dap-ui",
             "nvim-neotest/nvim-nio",
-            "mfussenegger/nvim-dap-python",
         },
         config = function()
             local dap = require("dap")
@@ -40,8 +39,6 @@ return {
             dap.listeners.before.event_exited["dapui_config"] = function()
                 dapui.close()
             end
-            -- Set up Python debugging with nvim-dap-python
-            require("dap-python").setup()
 
             -- Key mappings for DAP
             vim.api.nvim_set_keymap(
@@ -60,8 +57,16 @@ return {
     },
     {
         "julianolf/nvim-dap-lldb",
+        lazy = true,
         config = function()
             require("dap-lldb").setup()
+        end,
+    },
+    {
+        "mfussenegger/nvim-dap-python",
+        lazy = true,
+        config = function()
+            require("dap-python").setup()
         end,
     },
 }
