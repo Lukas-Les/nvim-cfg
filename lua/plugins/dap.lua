@@ -62,6 +62,11 @@ return {
             )
             vim.api.nvim_set_keymap(
                 "n",
+                "<leader>dt", '<cmd>lua require("dap").terminate()<CR>',
+                { noremap = true, silent = true }
+            )
+            vim.api.nvim_set_keymap(
+                "n",
                 "<leader>dr", '<cmd>lua require("dap").repl.open()<CR>',
                 { noremap = true, silent = true }
             )
