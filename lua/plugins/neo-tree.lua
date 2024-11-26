@@ -40,7 +40,7 @@ return {
                 },
             },
             filesystem = {
-                follow_current_file = true,
+                follow_current_file = { "enabled" },
                 filtered_items = {
                     hide_dotfiles = false,
                     hide_gitignored = false,
