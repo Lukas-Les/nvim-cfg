@@ -77,6 +77,11 @@ return {
             )
             vim.api.nvim_set_keymap(
                 "n",
+                "<leader>d;", '<cmd>lua require("dap").show_logs()<CR>',
+                { noremap = true, silent = true }
+            )
+            vim.api.nvim_set_keymap(
+                "n",
                 "<leader>dh", '<cmd>lua require("dap.ui.widgets").hover()<CR>',
                 { noremap = true, silent = true }
             )
