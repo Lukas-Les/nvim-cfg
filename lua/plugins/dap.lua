@@ -92,15 +92,16 @@ return {
         end,
         keys = {
             { "<leader>dc", '<cmd>lua require("dap").continue()<CR>', desc = "Turn On DAP / Continue"},
+            { "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>', desc = "toggle breakpoint"},
         },
     },
     {
-        "julianolf/nvim-dap-lldb", lazy = true
+        "julianolf/nvim-dap-lldb", lazy = true, opts = {}
     },
     {
-        "mfussenegger/nvim-dap-python", lazy = true
+        "mfussenegger/nvim-dap-python", lazy = true, opts = {}
     },
     {
-        "leoluz/nvim-dap-go", lazy = true
+        "leoluz/nvim-dap-go", lazy = true, opts = {}
     }
 }

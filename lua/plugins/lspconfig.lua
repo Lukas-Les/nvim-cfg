@@ -10,7 +10,7 @@ return {
                 filetypes = { "rust" },
                 on_attach = function(client, bufnr)
                     vim.api.nvim_command('echo "RUST ANALYZER LOADED!"')
-                    require("dap-lldb")
+                    require("dap-lldb").setup()
                 end,
             })
 
@@ -19,7 +19,7 @@ return {
                 filetypes = { "python" },
                 on_attach = function(client, bufnr)
                     vim.api.nvim_command('echo "PYRIGHT LOADED!"')
-                    require("dap-python")
+                    require("dap-python").setup()
                 end,
             })
 
