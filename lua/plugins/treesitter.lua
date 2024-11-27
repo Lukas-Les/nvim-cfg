@@ -5,8 +5,11 @@ return {
         config = function()
           require('nvim-treesitter.configs').setup({
             ensure_installed = {
+              'go',
+              'lua',
               'markdown',
               'markdown_inline',
+              'python',
             },
             auto_install = true,
             highlight = {

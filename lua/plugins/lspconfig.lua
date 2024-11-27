@@ -9,7 +9,6 @@ return {
                 capabilities = capabilities,
                 filetypes = { "rust" },
                 on_attach = function(client, bufnr)
-                    vim.api.nvim_command('echo "RUST ANALYZER LOADED!"')
                     require("dap-lldb")
                 end,
             })
@@ -18,7 +17,6 @@ return {
                 capabilities = capabilities,
                 filetypes = { "python" },
                 on_attach = function(client, bufnr)
-                    vim.api.nvim_command('echo "PYRIGHT LOADED!"')
                     require("dap-python")
                 end,
             })
@@ -38,7 +36,6 @@ return {
                     },
                 },
                 on_attach = function(client, bufnr)
-                    vim.api.nvim_command('echo "GO LOADED!"')
                     require("dap-go")
                 end,
             })
@@ -96,4 +93,10 @@ return {
             })
         end,
     },
+    -- Rust LSP and debugger
+    -- {
+    --   "mrcjkb/rustaceanvim",
+    --   version = "^5", -- Recommended
+    --   lazy = false, -- This plugin is already lazy
+    -- },
 }
