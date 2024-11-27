@@ -7,7 +7,6 @@ return {
         },
         config = function()
             local dap = require("dap")
-
             local dapui = require("dapui")
             dapui.setup({
                 icons = {
@@ -96,24 +95,12 @@ return {
         },
     },
     {
-        "julianolf/nvim-dap-lldb",
-        lazy = true,
-        config = function()
-            require("dap-lldb").setup()
-        end,
+        "julianolf/nvim-dap-lldb", lazy = true
     },
     {
-        "mfussenegger/nvim-dap-python",
-        lazy = true,
-        config = function()
-            require("dap-python").setup()
-        end,
+        "mfussenegger/nvim-dap-python", lazy = true
     },
     {
-        "leoluz/nvim-dap-go",
-        lazy = true,
-        config = function()
-            require("dap-go").setup()
-        end,
+        "leoluz/nvim-dap-go", lazy = true
     }
 }
