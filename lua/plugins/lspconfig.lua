@@ -52,6 +52,7 @@ return {
                     vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts) -- Example: Format buffer
                 end,
             })
+        vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true, silent = true })
         end,
     },
 
