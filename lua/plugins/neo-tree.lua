@@ -48,7 +48,7 @@ return {
                 },
             },
             window = {
-                position = "left",
+                position = "right",
                 mappings = {
                     ["oo"] = { "open", nowait = true },
                     ["Y"] = "copy_filename_to_clipboard",
