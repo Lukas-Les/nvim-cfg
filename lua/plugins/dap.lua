@@ -6,6 +6,9 @@ return {
             "nvim-neotest/nvim-nio",
         },
         config = function()
+            require("dap-python").setup()
+            require("dap-lldb").setup()
+            require("dap-go").setup()
             local dap = require("dap")
 
             local dapui = require("dapui")
