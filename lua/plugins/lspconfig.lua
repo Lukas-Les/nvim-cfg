@@ -8,19 +8,11 @@ return {
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,
                 filetypes = { "rust" },
-                on_attach = function(client, bufnr)
-                    vim.api.nvim_command('echo "RUST ANALYZER LOADED!"')
-                    require("dap-lldb").setup()
-                end,
             })
 
             lspconfig.pyright.setup({
                 capabilities = capabilities,
                 filetypes = { "python" },
-                on_attach = function(client, bufnr)
-                    vim.api.nvim_command('echo "PYRIGHT LOADED!"')
-                    require("dap-python").setup()
-                end,
             })
 
             -- Setup gopls for Go
@@ -37,10 +29,6 @@ return {
                         staticcheck = true,
                     },
                 },
-                on_attach = function(client, bufnr)
-                    vim.api.nvim_command('echo "GO LOADED!"')
-                    require("dap-go")
-                end,
             })
 
             lspconfig.bashls.setup({
@@ -51,6 +39,11 @@ return {
                     local opts = { noremap = true, silent = true, buffer = bufnr }
                     vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts) -- Example: Format buffer
                 end,
+            })
+
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities,
+                filetypes = { "lua" },
             })
         vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true, silent = true })
         end,

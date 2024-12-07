@@ -7,6 +7,7 @@ return {
         },
         config = function()
             local dap = require("dap")
+
             local dapui = require("dapui")
             dapui.setup({
                 icons = {
@@ -90,18 +91,19 @@ return {
                 { noremap = true, silent = true }
             )
         end,
+
         keys = {
             { "<leader>dc", '<cmd>lua require("dap").continue()<CR>', desc = "Turn On DAP / Continue"},
             { "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>', desc = "toggle breakpoint"},
         },
     },
     {
-        "julianolf/nvim-dap-lldb", lazy = true, opts = {}
+        "julianolf/nvim-dap-lldb",
     },
     {
-        "mfussenegger/nvim-dap-python", lazy = true, opts = {}
+        "mfussenegger/nvim-dap-python"
     },
     {
-        "leoluz/nvim-dap-go", lazy = true, opts = {}
+        "leoluz/nvim-dap-go"
     }
 }
