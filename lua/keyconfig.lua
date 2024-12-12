@@ -10,11 +10,8 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<C-t>", ":tabnew<CR>", { desc = "Open new tab" })
 vim.keymap.set("n", "<C-q>", ":tabclose<CR>", { desc = "Close current tab" })
 
-vim.keymap.set("n", "<leader>nt", "<Cmd>Neotree toggle<CR>", { desc = "Toggle Neotree" })
 
 -- Search
-
-vim.api.nvim_set_keymap('n', '<leader>ntr', ':Neotree reveal<CR>', { noremap = true, silent = true })
 vim.keymap.set(
     "n",
     "<leader>/",
