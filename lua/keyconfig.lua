@@ -10,7 +10,6 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<C-t>", ":tabnew<CR>", { desc = "Open new tab" })
 vim.keymap.set("n", "<C-q>", ":tabclose<CR>", { desc = "Close current tab" })
 
-
 -- Search
 vim.keymap.set(
     "n",
@@ -18,4 +17,3 @@ vim.keymap.set(
     "<Cmd>set invhlsearch<CR>",
     { remap = true, silent = true, desc = "Hide search highlights" }
 )
-

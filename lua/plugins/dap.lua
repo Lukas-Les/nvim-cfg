@@ -45,73 +45,84 @@ return {
 
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>',
+                "<leader>db",
+                '<cmd>lua require("dap").toggle_breakpoint()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>ds", '<cmd>lua require("dap").step_over()<CR>',
+                "<leader>ds",
+                '<cmd>lua require("dap").step_over()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>di", '<cmd>lua require("dap").step_into()<CR>',
+                "<leader>di",
+                '<cmd>lua require("dap").step_into()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>do", '<cmd>lua require("dap").step_out()<CR>',
+                "<leader>do",
+                '<cmd>lua require("dap").step_out()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>dt", '<cmd>lua require("dap").terminate()<CR>',
+                "<leader>dt",
+                '<cmd>lua require("dap").terminate()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>dr", '<cmd>lua require("dap").repl.open()<CR>',
+                "<leader>dr",
+                '<cmd>lua require("dap").repl.open()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>dl", '<cmd>lua require("dap").run_last()<CR>',
+                "<leader>dl",
+                '<cmd>lua require("dap").run_last()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>d;", '<cmd>lua require("dap").show_logs()<CR>',
+                "<leader>d;",
+                '<cmd>lua require("dap").show_logs()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>dx", '<cmd>lua require("dapui").close()<CR>',
+                "<leader>dx",
+                '<cmd>lua require("dapui").close()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>dh", '<cmd>lua require("dap.ui.widgets").hover()<CR>',
+                "<leader>dh",
+                '<cmd>lua require("dap.ui.widgets").hover()<CR>',
                 { noremap = true, silent = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>dp", '<cmd>lua require("dap.ui.widgets").preview()<CR>',
+                "<leader>dp",
+                '<cmd>lua require("dap.ui.widgets").preview()<CR>',
                 { noremap = true, silent = true }
             )
         end,
 
         keys = {
-            { "<leader>dc", '<cmd>lua require("dap").continue()<CR>', desc = "Turn On DAP / Continue"},
-            { "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>', desc = "toggle breakpoint"},
+            { "<leader>dc", '<cmd>lua require("dap").continue()<CR>', desc = "Turn On DAP / Continue" },
+            { "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>', desc = "toggle breakpoint" },
         },
     },
     {
         "julianolf/nvim-dap-lldb",
     },
     {
-        "mfussenegger/nvim-dap-python"
+        "mfussenegger/nvim-dap-python",
     },
     {
-        "leoluz/nvim-dap-go"
-    }
+        "leoluz/nvim-dap-go",
+    },
 }

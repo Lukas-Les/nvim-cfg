@@ -45,7 +45,7 @@ return {
                 capabilities = capabilities,
                 filetypes = { "lua" },
             })
-        vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true, silent = true })
+            vim.keymap.set("n", "gD", vim.lsp.buf.definition, { noremap = true, silent = true })
         end,
     },
 
