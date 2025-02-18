@@ -45,12 +45,6 @@ return {
 
             vim.api.nvim_set_keymap(
                 "n",
-                "<leader>db",
-                '<cmd>lua require("dap").toggle_breakpoint()<CR>',
-                { noremap = true, silent = true }
-            )
-            vim.api.nvim_set_keymap(
-                "n",
                 "<leader>ds",
                 '<cmd>lua require("dap").step_over()<CR>',
                 { noremap = true, silent = true }
@@ -109,6 +103,21 @@ return {
                 '<cmd>lua require("dap.ui.widgets").preview()<CR>',
                 { noremap = true, silent = true }
             )
+            -- dap.adapters.python = {
+            --     type = "server",
+            --     host = "127.0.0.1",
+            --     port = 5678,
+            -- }
+            -- dap.configurations.python = {
+            --     {
+            --         type = "python",
+            --         request = "attach",
+            --         name = "attach to debugpy",
+            --         host = "127.0.0.1",
+            --         port = 5678,
+            --         justMyCode = false,
+            --     },
+            -- }
         end,
 
         keys = {
