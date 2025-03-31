@@ -1,4 +1,8 @@
 vim.keymap.set("n", "<C-s>", "<Cmd>:w<CR>", { desc = "Save file" })
+-- Buffers
+vim.keymap.set("n", "<leader>b", ":bn<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<leader>B", ":bN<CR>", { desc = "Previous buffer" })
+
 -- Windows
 vim.keymap.set("n", "<C-c>", "<Cmd>:q<CR>", { remap = true, silent = true, desc = "Close the window" })
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
