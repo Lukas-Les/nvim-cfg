@@ -87,6 +87,22 @@ return {
         },
         config = function()
             require("telescope").setup({
+                defaults = {
+                    mappings = {
+                        i = {
+                            ["<C-d>"] = function(prompt_bufnr)
+                                require("telescope.actions").delete_buffer(prompt_bufnr)
+                                vim.api.nvim_buf_delete(prompt_bufnr, {})
+                            end,
+                        },
+                        n = {
+                            ["<C-d>"] = function(prompt_bufnr)
+                                require("telescope.actions").delete_buffer(prompt_bufnr)
+                                vim.api.nvim_buf_delete(prompt_bufnr, {})
+                            end,
+                        },
+                    },
+                },
                 extensions = {
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown(),
@@ -96,7 +112,9 @@ return {
 
             pcall(require("telescope").load_extension, "fzf")
             pcall(require("telescope").load_extension, "ui-select")
+
             local builtin = require("telescope.builtin")
+
             vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
             vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
             vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -117,15 +135,6 @@ return {
                     previewer = false,
                 }))
             end, { desc = "[sb] Fuzzily search in current buffer" })
-
-            -- It's also possible to pass additional configuration options.
-            --  See `:help telescope.builtin.live_grep()` for information about particular keys
-            vim.keymap.set("n", "<leader>so", function()
-                builtin.live_grep({
-                    grep_open_files = true,
-                    prompt_title = "Live Grep in Open Files",
-                })
-            end, { desc = "[S]earch in [O]pen Files" })
 
             -- Shortcut for searching your Neovim configuration files
             vim.keymap.set("n", "<leader>snf", function()
