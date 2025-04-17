@@ -37,3 +37,6 @@ vim.keymap.set(
 vim.keymap.set("v", "p", '"_dP"')
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+-- Git
+vim.keymap.set("n", "<leader>gb", ":!git blame %<CR>", { desc = "Show Git blame" })
