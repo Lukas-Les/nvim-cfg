@@ -84,6 +84,7 @@ return {
                 end,
             },
             { "nvim-telescope/telescope-ui-select.nvim" },
+            { "Myzel394/jsonfly.nvim" },
         },
         config = function()
             require("telescope").setup({
@@ -140,6 +141,13 @@ return {
             vim.keymap.set("n", "<leader>snf", function()
                 builtin.find_files({ cwd = vim.fn.stdpath("config") })
             end, { desc = "[S]earch [N]eovim [F]iles" })
+
+            vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+                pattern = { "*.json", "*.xml", "*.yaml", "*.yml" },
+                callback = function()
+                    vim.keymap.set("n", "<leader>j", "<cmd>Telescope jsonfly<CR>", { desc = "Open jsonfly" })
+                end,
+            })
         end,
     },
     {
