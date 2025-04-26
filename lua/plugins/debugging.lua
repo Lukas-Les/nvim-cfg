@@ -138,6 +138,22 @@ return {
                         host = "127.0.0.1",
                     },
                 },
+                {
+                    type = "python",
+                    request = "attach",
+                    name = "Attach to a Docker container",
+                    connect = {
+                        host = "127.0.0.1",
+                        port = 5678,
+                    },
+                    pathMappings = {
+                        {
+                            localRoot = vim.fn.getcwd(),
+                            remoteRoot = "/app",
+                        },
+                    },
+                    justMyCode = false,
+                },
             }
         end,
     },
