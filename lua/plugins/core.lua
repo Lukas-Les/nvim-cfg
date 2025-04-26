@@ -183,6 +183,8 @@ return {
         -----@type neotree.Config
         --opts = {},
         config = function()
+            vim.opt.spell = true
+            vim.opt.spelllang = { "en_us" }
             -- If you want icons for diagnostic errors, you'll need to define them somewhere.
             -- In Neovim v0.10+, you can configure them in vim.diagnostic.config(), like:
             --

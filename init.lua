@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us" }
+
 vim.g.have_nerd_font = false
 
 -- [[ Setting options ]]
