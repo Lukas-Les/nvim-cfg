@@ -155,6 +155,31 @@ return {
                     justMyCode = false,
                 },
             }
+            dap.adapters.codelldb = {
+                type = "server",
+                port = "${port}",
+                executable = {
+                    command = ".",
+                    args = { "--port", "$port" },
+                },
+            }
+            dap.configurations.asm = {
+                {
+                    name = "Launch Assembly Program",
+                    type = "codelldb",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                    args = {},
+                    -- Uncomment if you need to see disassembly
+                    -- disableASLR = true,
+                    -- displayFormat = 'auto',
+                    -- showDisassembly = "always",
+                },
+            }
         end,
     },
 }
