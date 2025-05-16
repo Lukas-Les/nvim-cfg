@@ -8,3 +8,7 @@ Missing features:
 * loading only the LSPs that are nedded;
 * debug using single installation of debugpy;
 
+Missing plugins:
+* lualine
+* gitsigns
+* trouble
