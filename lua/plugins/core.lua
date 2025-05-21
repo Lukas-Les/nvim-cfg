@@ -537,4 +537,33 @@ return {
             extensions = { "neo-tree", "nvim-dap-ui" },
         },
     },
+    {
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup({
+                signs = {
+                    add = { text = "│" },
+                    change = { text = "│" },
+                    delete = { text = "_" },
+                    topdelete = { text = "‾" },
+                    changedelete = { text = "~" },
+                    untracked = { text = "┆" },
+                },
+                on_attach = function(bufnr)
+                    local gs = package.loaded.gitsigns
+
+                    local function map(mode, l, r, opts)
+                        opts = opts or {}
+                        opts.buffer = bufnr
+                        vim.keymap.set(mode, l, r, opts)
+                    end
+
+                    map("n", "gn", gs.next_hunk, { desc = "Next Hunk" })
+                    map("n", "gp", gs.prev_hunk, { desc = "Prev Hunk" })
+                    map("n", "gu", gs.reset_hunk, { desc = "Reset Hunk" })
+                    map("n", "<leader>gb", ":Gitsigns blame .<CR>", { desc = "Git blame" })
+                end,
+            })
+        end,
+    },
 }
