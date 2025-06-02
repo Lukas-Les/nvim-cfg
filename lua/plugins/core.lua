@@ -91,13 +91,13 @@ return {
                 defaults = {
                     mappings = {
                         i = {
-                            ["<C-d>"] = function(prompt_bufnr)
+                            ["<C-x>"] = function(prompt_bufnr)
                                 require("telescope.actions").delete_buffer(prompt_bufnr)
                                 vim.api.nvim_buf_delete(prompt_bufnr, {})
                             end,
                         },
                         n = {
-                            ["<C-d>"] = function(prompt_bufnr)
+                            ["<C-x>"] = function(prompt_bufnr)
                                 require("telescope.actions").delete_buffer(prompt_bufnr)
                                 vim.api.nvim_buf_delete(prompt_bufnr, {})
                             end,
