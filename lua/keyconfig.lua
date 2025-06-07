@@ -1,3 +1,5 @@
+-- map jj to escape
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-s>", "<Cmd>:w<CR>", { desc = "Save file" })
 -- Buffers
 vim.keymap.set("n", "<leader>b", ":bn<CR>", { desc = "Next buffer" })
