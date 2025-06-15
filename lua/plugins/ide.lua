@@ -182,10 +182,10 @@ return {
                 underline = { severity = vim.diagnostic.severity.ERROR },
                 signs = vim.g.have_nerd_font and {
                     text = {
-                        [vim.diagnostic.severity.ERROR] = "󰅚 ",
-                        [vim.diagnostic.severity.WARN] = "󰀪 ",
-                        [vim.diagnostic.severity.INFO] = "󰋽 ",
-                        [vim.diagnostic.severity.HINT] = "󰌶 ",
+                        [vim.diagnostic.severity.ERROR] = "🔴 ",
+                        [vim.diagnostic.severity.WARN] = "🟡 ",
+                        [vim.diagnostic.severity.INFO] = "🔵 ",
+                        [vim.diagnostic.severity.HINT] = "🟣 ",
                     },
                 } or {},
                 virtual_text = {
@@ -456,7 +456,7 @@ return {
                 --  the list of additional_vim_regex_highlighting and disabled languages for indent.
                 additional_vim_regex_highlighting = { "ruby" },
             },
-            indent = { enable = true, disable = { "ruby" } },
+            indent = { enable = true, disable = { "ruby", "lua", "asm" } },
         },
         -- There are additional nvim-treesitter modules that you can use to interact
         -- with nvim-treesitter. You should go explore a few and see what interests you:
