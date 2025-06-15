@@ -12,8 +12,12 @@ return {
                 styles = {
                     comments = { italic = false }, -- Disable italics in comments
                 },
+                on_highlights = function(hl, c)
+                    hl.LineNrAbove = { fg = "#FFFFFF" }
+                    hl.LineNrBelow = { fg = "#FFFFFF" }
+                    hl.Comment = { fg = "#a6a6a6" }
+                end,
             })
-
             -- Load the colorscheme here.
             -- Like many other themes, this one has different styles, and you could load
             -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
@@ -191,10 +195,10 @@ return {
             vim.diagnostic.config({
                 signs = {
                     text = {
-                        [vim.diagnostic.severity.ERROR] = "E",
-                        [vim.diagnostic.severity.WARN] = "W",
-                        [vim.diagnostic.severity.INFO] = "I",
-                        [vim.diagnostic.severity.HINT] = "H",
+                        [vim.diagnostic.severity.ERROR] = "❗",
+                        [vim.diagnostic.severity.WARN] = "⚠️",
+                        [vim.diagnostic.severity.INFO] = "ℹ️",
+                        [vim.diagnostic.severity.HINT] = "❕",
                     },
                 },
             })
@@ -258,16 +262,17 @@ return {
                     git_status = {
                         symbols = {
                             -- Change type
-                            added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-                            modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-                            deleted = "✖", -- this can only be used in the git_status source
-                            renamed = "r", -- this can only be used in the git_status source
+                            added = "+",
+                            modified = "~",
+                            deleted = "x",
+                            renamed = ">",
+
                             -- Status type
-                            untracked = "u",
-                            ignored = "i",
-                            unstaged = "U",
-                            staged = "S",
-                            conflict = "C",
+                            untracked = "?",
+                            ignored = "!",
+                            unstaged = "*", -- Represents a modified, but not yet staged state
+                            staged = "S", -- Clearly stands for "Staged"
+                            conflict = "C", -- Clearly stands for "Conflict"
                         },
                     },
                     -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
