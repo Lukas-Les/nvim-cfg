@@ -131,6 +131,18 @@ return {
             vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
             vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
             vim.keymap.set("n", "<leader>sm", builtin.git_status, { desc = "[S]earch [M]odified files" })
+            vim.keymap.set(
+                "n",
+                "<leader>sF",
+                ":Telescope find_files hidden=true, no_ignore=true<cr>",
+                { silent = true, desc = "[S]earch with hidden [F]iles" }
+            )
+            vim.keymap.set(
+                "n",
+                "<leader>sG",
+                ":lua require('telescope.builtin').live_grep({ additional_args = function() return { '--hidden' } end })<cr>",
+                { silent = true, desc = "[S]earch by [G]rep with [H]idden files" }
+            )
 
             -- Slightly advanced example of overriding default behavior and theme
             vim.keymap.set("n", "<leader>sb", function()
