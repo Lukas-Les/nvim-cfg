@@ -3,6 +3,11 @@ return {
         "mfussenegger/nvim-dap",
         config = function()
             local dap = require("dap")
+            vim.fn.sign_define(
+                "DapBreakpoint",
+                { text = "B", texthl = "DapBreakpoint", linehl = "", numhl = "DapBreakpoint" }
+            )
+            vim.fn.sign_define("DapStopped", { text = "→", texthl = "DapStopped", linehl = "", numhl = "DapStopped" })
             vim.api.nvim_set_keymap(
                 "n",
                 "<leader>db",
@@ -186,7 +191,26 @@ return {
         "rcarriga/nvim-dap-ui",
         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         config = function()
-            require("dapui").setup()
+            local dapui = require("dapui").setup({
+                icons = {
+                    expanded = "▾",
+                    collapsed = "▸",
+                    current_frame = "⭐",
+                },
+                controls = {
+                    icons = {
+                        pause = "⏸️",
+                        play = "🚀",
+                        step_into = "🔽",
+                        step_over = "⏩",
+                        step_out = "🔼",
+                        step_back = "◀️",
+                        run_last = "🔁",
+                        terminate = "❌",
+                        disconnect = "🔌",
+                    },
+                },
+            })
             vim.api.nvim_set_keymap(
                 "n",
                 "<leader>du",

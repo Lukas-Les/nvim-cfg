@@ -13,8 +13,13 @@ return {
                     comments = { italic = false }, -- Disable italics in comments
                 },
                 on_highlights = function(hl, c)
-                    hl.LineNrAbove = { fg = "#FFFFFF" }
-                    hl.LineNrBelow = { fg = "#FFFFFF" }
+                    hl.DapBreakpoint = { fg = c.red }
+                    hl.DapStopped = { fg = c.green }
+                    hl.DapBreakpointCondition = { fg = c.red }
+                    hl.DapLogPoint = { fg = c.red }
+                    hl.DapBreakpointRejected = { fg = c.red }
+                    hl.LineNrAbove = { fg = c.cyan }
+                    hl.LineNrBelow = { fg = c.cyan }
                     hl.Comment = { fg = "#a6a6a6" }
                 end,
             })
@@ -207,10 +212,10 @@ return {
             vim.diagnostic.config({
                 signs = {
                     text = {
-                        [vim.diagnostic.severity.ERROR] = "❗",
-                        [vim.diagnostic.severity.WARN] = "⚠️",
-                        [vim.diagnostic.severity.INFO] = "ℹ️",
-                        [vim.diagnostic.severity.HINT] = "❕",
+                        [vim.diagnostic.severity.ERROR] = "✖ ",
+                        [vim.diagnostic.severity.WARN] = "▲ ",
+                        [vim.diagnostic.severity.INFO] = "● ",
+                        [vim.diagnostic.severity.HINT] = "○ ",
                     },
                 },
             })
