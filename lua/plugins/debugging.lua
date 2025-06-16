@@ -8,6 +8,7 @@ return {
                 { text = "B", texthl = "DapBreakpoint", linehl = "", numhl = "DapBreakpoint" }
             )
             vim.fn.sign_define("DapStopped", { text = "→", texthl = "DapStopped", linehl = "", numhl = "DapStopped" })
+
             vim.api.nvim_set_keymap(
                 "n",
                 "<leader>db",
@@ -79,6 +80,12 @@ return {
                 "<leader>dp",
                 '<cmd>lua require("dap.ui.widgets").preview()<CR>',
                 { noremap = true, silent = true }
+            )
+            vim.api.nvim_set_keymap(
+                "n",
+                "<leader>dz",
+                "<cmd>lua require('dap').down()<CR>",
+                { desc = "Move cursor to the current stopped breakpoin" }
             )
 
             dap.adapters.python = function(cb, config)
