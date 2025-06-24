@@ -588,4 +588,75 @@ return {
             require("mini.pairs").setup()
         end,
     },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            local harpoon = require("harpoon")
+            harpoon:setup({})
+
+            -- Add the current file to your Harpoon list.
+            vim.keymap.set("n", "<leader>hh", function()
+                harpoon:list():add()
+            end, { desc = "Harpoon: Add current file to list" })
+
+            -- Select a specific file from your Harpoon list by its position.
+            -- These mappings (`<leader>ha`, `<leader>hs`, `<leader>hd`, `<leader>hf`)
+            -- correspond to positions 1, 2, 3, and 4 on your keyboard's home row,
+            -- offering quick access to your most frequent Harpoon marks.
+            vim.keymap.set("n", "<leader>ha", function()
+                harpoon:list():select(1)
+            end, { desc = "Harpoon: Go to mark 1" })
+            vim.keymap.set("n", "<leader>hs", function()
+                harpoon:list():select(2)
+            end, { desc = "Harpoon: Go to mark 2" })
+            vim.keymap.set("n", "<leader>hd", function()
+                harpoon:list():select(3)
+            end, { desc = "Harpoon: Go to mark 3" })
+            vim.keymap.set("n", "<leader>hf", function()
+                harpoon:list():select(4)
+            end, { desc = "Harpoon: Go to mark 4" })
+
+            -- Toggle between the previous and next buffers stored within your Harpoon list.
+            -- `<leader>hp` for "previous" and `<leader>hn` for "next" are intuitive.
+            vim.keymap.set("n", "<leader>hp", function()
+                harpoon:list():prev()
+            end, { desc = "Harpoon: Go to previous mark" })
+            vim.keymap.set("n", "<leader>hn", function()
+                harpoon:list():next()
+            end, { desc = "Harpoon: Go to next mark" })
+
+            -- Integrate Harpoon with Telescope for a fuzzy-finding interface.
+            -- This allows you to easily search and jump to any file in your Harpoon list.
+            local conf = require("telescope.config").values
+            local function toggle_telescope(harpoon_files)
+                local file_paths = {}
+                for _, item in ipairs(harpoon_files.items) do
+                    table.insert(file_paths, item.value)
+                end
+
+                require("telescope.pickers")
+                    .new({}, {
+                        prompt_title = "Harpoon Files", -- Clear title for the Telescope picker
+                        finder = require("telescope.finders").new_table({
+                            results = file_paths,
+                        }),
+                        previewer = conf.file_previewer({}),
+                        sorter = conf.generic_sorter({}),
+                    })
+                    :find()
+            end
+
+            vim.keymap.set("n", "<C-e>", function()
+                toggle_telescope(harpoon:list())
+            end, { desc = "Harpoon: Open file picker (Telescope)" })
+        end,
+    },
+    {
+        "mbbill/undotree",
+        config = function()
+            vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "[U]ndo [T]tree toggle" })
+        end,
+    },
 }
