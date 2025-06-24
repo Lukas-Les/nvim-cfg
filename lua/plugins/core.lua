@@ -656,6 +656,7 @@ return {
     {
         "mbbill/undotree",
         config = function()
+            vim.g.undotree_WindowLayout = 4
             vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "[U]ndo [T]tree toggle" })
         end,
     },
