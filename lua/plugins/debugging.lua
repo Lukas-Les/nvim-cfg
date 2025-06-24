@@ -171,28 +171,65 @@ return {
                 },
             }
             dap.adapters.codelldb = {
+                -- The 'type' is "server" because codelldb runs as a server that nvim-dap connects to.
                 type = "server",
+                -- The port for communication. "${port}" is a placeholder that nvim-dap will fill in.
                 port = "${port}",
                 executable = {
-                    command = ".",
-                    args = { "--port", "$port" },
+                    -- 'command' is simply "codelldb" because Mason adds its bin directory
+                    -- (containing a symlink to the actual codelldb executable) to Neovim's PATH.
+                    -- This works universally if Mason is correctly set up on both macOS and Ubuntu.
+                    command = "codelldb",
+                    -- Arguments passed to the codelldb executable when it's launched.
+                    -- It needs to know which port to listen on.
+                    args = { "--port", "${port}" },
                 },
+                -- Optional: If you ever need to debug the adapter itself, uncomment these lines.
+                -- logFile = "/tmp/codelldb_dap.log",
+                -- logCategories = { "all" },
             }
+
+            -- Define a debug configuration specifically for assembly files
             dap.configurations.asm = {
                 {
-                    name = "Launch Assembly Program",
-                    type = "codelldb",
-                    request = "launch",
+                    name = "Launch Assembly Program", -- A friendly name for this configuration
+                    type = "codelldb", -- This links to the adapter defined above (dap.adapters.codelldb)
+                    request = "launch", -- We want to launch the program (not attach to an existing one)
+
+                    -- This function prompts you to select the executable file to debug.
+                    -- It defaults to the current working directory.
                     program = function()
                         return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
                     end,
+
+                    -- The current working directory for the launched program.
+                    -- "${workspaceFolder}" typically refers to your Neovim's current working directory.
                     cwd = "${workspaceFolder}",
-                    stopOnEntry = false,
+
+                    -- Set to 'true' to stop immediately at the program's entry point (e.g., _start or main).
+                    -- Highly recommended for assembly debugging to see the initial setup.
+                    stopOnEntry = true,
+
+                    -- Command-line arguments to pass to your assembly program (if it takes any).
                     args = {},
-                    -- Uncomment if you need to see disassembly
-                    -- disableASLR = true,
-                    -- displayFormat = 'auto',
-                    -- showDisassembly = "always",
+
+                    -- *** Essential Settings for Assembly Debugging ***
+                    --
+                    -- Disables Address Space Layout Randomization (ASLR).
+                    -- This makes memory addresses consistent between runs, which is very helpful
+                    -- when examining specific memory locations or hardcoded addresses in assembly.
+                    disableASLR = true,
+
+                    -- Tells the debugger to always show the disassembly view.
+                    -- Without this, LLDB would try to show source code if available,
+                    -- which isn't useful for raw assembly or when you want to see the
+                    -- low-level instructions.
+                    showDisassembly = "always",
+
+                    -- Controls the display format of values (e.g., registers, memory).
+                    -- 'auto' is usually fine, but you could try 'hex' if you want everything
+                    -- explicitly in hexadecimal.
+                    displayFormat = "auto",
                 },
             }
         end,
