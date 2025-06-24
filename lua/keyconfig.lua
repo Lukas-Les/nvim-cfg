@@ -1,6 +1,8 @@
 -- map jj to escape
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+
 vim.keymap.set("n", "<C-s>", "<Cmd>:w<CR>", { desc = "Save file" })
+
 -- Buffers
 vim.keymap.set("n", "<leader>b", ":bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>B", ":bN<CR>", { desc = "Previous buffer" })
@@ -29,6 +31,10 @@ vim.keymap.set(
     "<Cmd>set invhlsearch<CR>",
     { remap = true, silent = true, desc = "Hide search highlights" }
 )
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 -- If you visually select something and hit paste
 -- that thing gets yanked into your buffer. This
@@ -39,3 +45,7 @@ vim.keymap.set(
 vim.keymap.set("v", "p", '"_dP"')
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+-- move lines
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
