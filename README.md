@@ -206,6 +206,10 @@ This configuration supports debugging Python applications using `debugpy`. It au
 ### Assembly Debugging
 
 Debugging assembly code is supported via `codelldb`, which provides an LLDB-based debugging experience. This setup is particularly useful for low-level analysis.
+I couldn't find how to see decimal register values instead of hex in dap-ui, but I managed to find a command which can be executed in repl to see these values expressed in decimal
+```
+re r -f decimal
+```
 
 #### Prerequisites
 

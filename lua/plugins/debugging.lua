@@ -224,12 +224,13 @@ return {
                     -- Without this, LLDB would try to show source code if available,
                     -- which isn't useful for raw assembly or when you want to see the
                     -- low-level instructions.
-                    showDisassembly = "always",
+                    showDisassembly = "auto",
 
                     -- Controls the display format of values (e.g., registers, memory).
                     -- 'auto' is usually fine, but you could try 'hex' if you want everything
                     -- explicitly in hexadecimal.
-                    displayFormat = "auto",
+                    -- well actually, I want decimal, but it is not working
+                    displayFormat = "decimal",
                 },
             }
         end,
