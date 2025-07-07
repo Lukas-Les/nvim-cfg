@@ -627,6 +627,10 @@ return {
                 harpoon:list():next()
             end, { desc = "Harpoon: Go to next mark" })
 
+            vim.keymap.set("n", "<leader>hr", function()
+                require("harpoon"):list():remove_current_file()
+            end, { desc = "Harpoon: Remove current file from list" })
+
             -- Integrate Harpoon with Telescope for a fuzzy-finding interface.
             -- This allows you to easily search and jump to any file in your Harpoon list.
             local conf = require("telescope.config").values
