@@ -628,7 +628,7 @@ return {
             end, { desc = "Harpoon: Go to next mark" })
 
             vim.keymap.set("n", "<leader>hr", function()
-                require("harpoon"):list():remove_current_file()
+                require("harpoon"):list():remove()
             end, { desc = "Harpoon: Remove current file from list" })
 
             -- Integrate Harpoon with Telescope for a fuzzy-finding interface.
