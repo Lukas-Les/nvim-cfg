@@ -16,13 +16,15 @@ return {
                 },
             },
             adapters = {
-                gemini = function()
-                    return require("codecompanion.adapters").extend("gemini", {
-                        env = {
-                            api_key = "GEMINI_API_KEY",
-                        },
-                    })
-                end,
+                http = {
+                    gemini = function()
+                        return require("codecompanion.adapters").extend("gemini", {
+                            env = {
+                                api_key = "GEMINI_API_KEY",
+                            },
+                        })
+                    end,
+                },
             },
             display = {
                 action_pallete = { provider = "telescope" },
