@@ -267,4 +267,13 @@ return {
             )
         end,
     },
+    {
+        "leoluz/nvim-dap-go",
+        ft = "go", -- Only load for Go files
+        dependencies = "mfussenegger/nvim-dap",
+        config = function()
+            -- This one line sets up everything automatically
+            require("dap-go").setup()
+        end,
+    },
 }
