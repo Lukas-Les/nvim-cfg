@@ -273,7 +273,7 @@ return {
         dependencies = "mfussenegger/nvim-dap",
         config = function()
             -- This one line sets up everything automatically
-            require("dap-go").setup()
+            require("dap-go").setup({})
         end,
     },
 }
