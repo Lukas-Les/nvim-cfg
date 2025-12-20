@@ -433,6 +433,18 @@ return {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         build = ":TSUpdate",
+        config = function()
+            local langs = { "lua", "python", "go", "c" }
+            require("nvim-treesitter").setup({
+                ensure_installed = langs,
+            })
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = langs,
+                callback = function()
+                    vim.treesitter.start()
+                end,
+            })
+        end,
     },
     {
         "folke/trouble.nvim",
