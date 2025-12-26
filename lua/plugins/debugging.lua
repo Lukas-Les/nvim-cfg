@@ -236,35 +236,18 @@ return {
         end,
     },
     {
-        "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+        "igorlfs/nvim-dap-view",
+        ---@module 'dap-view'
+        ---@type dapview.Config
+        opts = {},
         config = function()
-            local dapui = require("dapui").setup({
-                icons = {
-                    expanded = "▾",
-                    collapsed = "▸",
-                    current_frame = "⭐",
-                },
-                controls = {
-                    icons = {
-                        pause = "⏸️",
-                        play = "🚀",
-                        step_into = "🔽",
-                        step_over = "⏩",
-                        step_out = "🔼",
-                        step_back = "◀️",
-                        run_last = "🔁",
-                        terminate = "❌",
-                        disconnect = "🔌",
-                    },
+            local dw = require("dap-view").setup({
+                winbar = {
+                    show = true,
+                    default_section = "repl",
                 },
             })
-            vim.api.nvim_set_keymap(
-                "n",
-                "<leader>du",
-                '<cmd>lua require("dapui").toggle()<CR>',
-                { noremap = true, silent = true }
-            )
+            vim.api.nvim_set_keymap("n", "<leader>du", "<cmd>:DapViewToggle<CR>", { noremap = true, silent = true })
         end,
     },
     {
