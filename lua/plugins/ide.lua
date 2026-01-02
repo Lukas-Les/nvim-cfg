@@ -434,7 +434,7 @@ return {
         lazy = false,
         build = ":TSUpdate",
         config = function()
-            local langs = { "lua", "python", "go", "c" }
+            local langs = { "lua", "python", "go", "c", "yaml" }
             require("nvim-treesitter").setup({
                 ensure_installed = langs,
             })
