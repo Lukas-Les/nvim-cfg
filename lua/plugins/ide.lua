@@ -316,7 +316,13 @@ return {
             formatters_by_ft = {
                 c = { "clang-format" },
                 lua = { "stylua" },
-                python = { "black" },
+                python = function(bufnr)
+                    if require("conform").get_formatter_info("ruff_format", bufnr).available then
+                        return { "ruff_organize_imports", "ruff_fix", "ruff_format" }
+                    else
+                        return { "isort", "black" }
+                    end
+                end,
                 xml = { "tidy" },
                 json = { "jq" },
                 html = { "prettier" },
