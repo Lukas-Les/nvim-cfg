@@ -595,4 +595,5 @@ return {
             vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "[U]ndo [T]tree toggle" })
         end,
     },
+    { "wakatime/vim-wakatime", lazy = false },
 }
