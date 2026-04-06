@@ -327,6 +327,8 @@ return {
                 json = { "jq" },
                 html = { "prettier" },
                 javascript = { "prettier" },
+                templ = { "templ" },
+                go = { "gofmt" },
             },
         },
     },
