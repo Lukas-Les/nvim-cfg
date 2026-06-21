@@ -365,7 +365,10 @@ return {
                     --   end,
                     -- },
                 },
-                opts = {},
+                opts = {
+                    region_check_events = "InsertEnter",
+                    delete_check_events = "TextChanged",
+                },
             },
             "folke/lazydev.nvim",
         },
