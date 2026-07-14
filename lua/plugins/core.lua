@@ -98,6 +98,15 @@ return {
         config = function()
             require("telescope").setup({
                 defaults = {
+                    -- markdown's combined-injection query crashes the treesitter
+                    -- decoration provider on Neovim 0.12 (neovim/neovim#39032);
+                    -- Telescope's previewer calls vim.treesitter.start() directly,
+                    -- so fall back to regex highlighting for markdown previews.
+                    preview = {
+                        treesitter = {
+                            disable = { "markdown" },
+                        },
+                    },
                     mappings = {
                         i = {
                             ["<C-x>"] = function(prompt_bufnr)

@@ -442,15 +442,9 @@ return {
         lazy = false,
         build = ":TSUpdate",
         config = function()
-            local langs = { "lua", "python", "go", "c", "yaml", "templ" }
-            require("nvim-treesitter").setup({
-                ensure_installed = langs,
-            })
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = langs,
-                callback = function()
-                    vim.treesitter.start()
-                end,
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = { "lua", "python", "go", "c", "yaml", "templ" },
+                highlight = { enable = true },
             })
         end,
     },
