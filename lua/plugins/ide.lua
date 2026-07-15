@@ -446,6 +446,24 @@ return {
                 ensure_installed = { "lua", "python", "go", "c", "yaml", "templ" },
                 highlight = { enable = true },
             })
+
+            -- markdown's combined-injection query crashes the treesitter
+            -- decoration provider on Neovim 0.12 (neovim/neovim#39032). LSP
+            -- hover/signature-help popups hit this because
+            -- vim.lsp.util.open_floating_preview calls vim.treesitter.start()
+            -- directly for markdown, with no option to opt out (unlike
+            -- Telescope's preview.treesitter.disable in core.lua). Skip
+            -- treesitter for ephemeral (buftype=nofile) markdown buffers only,
+            -- so real markdown files keep treesitter highlighting.
+            local ts_start = vim.treesitter.start
+            vim.treesitter.start = function(bufnr, lang, ...)
+                bufnr = bufnr or 0
+                lang = lang or vim.bo[bufnr].filetype
+                if lang == "markdown" and vim.bo[bufnr].buftype == "nofile" then
+                    return
+                end
+                return ts_start(bufnr, lang, ...)
+            end
         end,
     },
     {
