@@ -285,6 +285,22 @@ return {
                     end,
                 },
             })
+
+            -- pyright migrated to the native lsp/pyright.lua config in this nvim-lspconfig
+            -- version, so mason-lspconfig now enables it via vim.lsp.enable() directly --
+            -- the old handlers-based require("lspconfig").pyright.setup() above is a no-op
+            -- for it. Configure it here instead, which actually gets merged in.
+            vim.lsp.config("pyright", {
+                capabilities = capabilities,
+                before_init = function(_, config)
+                    local venv_python = config.root_dir .. "/.venv/bin/python"
+                    if vim.fn.executable(venv_python) == 1 then
+                        config.settings = config.settings or {}
+                        config.settings.python = config.settings.python or {}
+                        config.settings.python.pythonPath = venv_python
+                    end
+                end,
+            })
         end,
     },
     { -- Autoformat
