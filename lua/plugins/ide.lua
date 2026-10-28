@@ -234,6 +234,10 @@ return {
                 --
                 -- But for many setups, the LSP (`ts_ls`) will work just fine
                 ts_ls = {},
+                eslint = {
+                    -- repo uses legacy .eslintrc.js (eslint 8)
+                    settings = { useFlatConfig = false },
+                },
                 --
 
                 lua_ls = {
@@ -268,6 +272,7 @@ return {
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
                 "stylua", -- Used to format Lua code
+                "prettier", -- Used to format JS/TS code
             })
             require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -347,6 +352,8 @@ return {
                 json = { "jq" },
                 html = { "prettier" },
                 javascript = { "prettier" },
+                typescript = { "prettier" },
+                typescriptreact = { "prettier" },
                 templ = { "templ" },
                 go = { "gofmt" },
             },
@@ -459,7 +466,8 @@ return {
         lazy = false,
         build = ":TSUpdate",
         config = function()
-            local ensure_installed = { "lua", "python", "go", "c", "yaml", "templ" }
+            local ensure_installed =
+                { "lua", "python", "go", "c", "yaml", "templ", "typescript", "javascript", "tsx", "json" }
             require("nvim-treesitter").install(ensure_installed)
 
             vim.api.nvim_create_autocmd("FileType", {
